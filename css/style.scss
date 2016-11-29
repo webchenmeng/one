@@ -1,0 +1,158 @@
+@import url('reset.css');
+html,body,.box{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+%dis{
+	display:inline-block;
+}
+%flex{
+	display:-webkit-flex;
+}
+@mixin pos($p:absolute){
+	position:$p;
+}
+.box{
+	@extend %flex;
+	-webkit-flex-direction:column;
+	@include pos(relative);
+}
+.header{
+	width:100%;
+	height:.95rem;
+	background:#1BA9BA;
+	padding:0 .1rem;
+	color:#fff;
+	@include pos(relative);
+	z-index:50;
+	h2{
+		padding:.16rem 0;
+		font-size:.18rem;
+	}
+	p{
+		font-size:.11rem;
+	}
+}
+.yuan{
+	width:100%;
+	height:.45rem;
+	background:#F0F3F5;
+	border-bottom:1px solid #1BA9BA;
+	font-size:.15rem;
+	padding:.1rem 0 0 .08rem;
+	@include pos(relative);
+	z-index:50;
+}
+.main{
+	width:100%;
+	-webkit-flex:1;
+	section{
+		width:100%;
+		padding:.1rem;
+		border-bottom:1px solid #888;
+		@extend %flex;
+		div{
+			@include pos(relative);
+		}
+		input{
+			@extend %dis;
+			width:.18rem;
+			height:.18rem;
+		}
+		label{
+			@include pos;
+			left:0;
+			top:0;
+			background:url('../img/check.png');
+			width:.18rem;
+			height:.18rem;
+			background-size:100% 100%;
+		}
+		input:checked+label{
+			background-image:url('../img/checked.png');
+		}
+		p{
+			font-size:.15rem;
+			margin-left:.1rem;
+		}
+	}
+}
+.sub{
+	width:95%;
+	height:.45rem;
+	background:#1BA9BA;
+	text-align:center;
+	line-height:.45rem;
+	font-size:.2rem;
+	color:#fff;
+	border-radius:10px;
+	margin:.2rem auto;
+}
+.mark{
+	@include pos;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,.4);
+	z-index:100;
+
+}
+.dialog{
+	@include pos;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	width:3rem;
+	height:2.5rem;
+	border-radius:.1rem;
+	overflow:hidden;
+	background:#F0F3F5;
+	z-index:100;
+	
+}
+._top{
+	width:100%;
+	height:.44rem;
+	background:#1BA9BA;
+	color:#fff;
+	h3{
+		width:100%;
+		font-size:.25rem;
+		text-align:center;
+		line-height:.44rem;
+	}
+
+}
+.close{
+	@include pos;
+	right:5px;
+	top:5px;
+	font-size:.3rem;
+}
+._cen{
+	width:100%;
+	height:1.5rem;
+	padding:.1rem;
+	p{
+		line-height:.25rem;
+	}
+}
+._bottom{
+	border-top:1px solid #888;
+	width:100%;
+	@extend %flex;
+	span{
+		-webkit-flex:1;
+		height:.45rem;
+		text-align:center;
+		line-height:.45rem;
+		color:#1BA9BA;
+		&:first-of-type{
+			border-right:1px solid #888;
+		}
+	}
+}
